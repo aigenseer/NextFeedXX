@@ -1,7 +1,7 @@
 package com.nextfeed;
 
-public record TestRequest(String name) {
-    public String name() {
-        return name;
+public record TestRequest(String test) {
+    public String test() {
+        return test;
     }
 }
