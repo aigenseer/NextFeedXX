@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserController {
 
-    @GetMapping("/user")
-    public UserRequest adminAuth() {
+    private final SurveyService surveyService;
+
+    @GetMapping("/user/create")
+    public UserRequest create() {
+        surveyService.create();
+        System.out.println("yes");
         return new UserRequest("TestUser");
     }
 
