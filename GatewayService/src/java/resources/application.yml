@@ -1,0 +1,35 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive
+  application:
+    name: nextfeed-gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: customers
+          uri: lb://survey-service
+          predicates:
+            - Path=/survey/**
+        - id: restaurants
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+server:
+  port: 8030
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8000/eureka}
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+
+
+
+
+
