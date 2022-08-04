@@ -13,14 +13,15 @@
     <groupId>com.nextfeed</groupId>
     <artifactId>nextfeed</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>EurekaService</name>
-    <description>EurekaService Description</description>
+    <name>NextFeed</name>
+    <description>NextFeed Description</description>
 
     <modules>
-        <module>EurekaService</module>
-        <module>SurveyService</module>
-        <module>GatewayService</module>
-        <module>UserService</module>
+        <module>Library</module>
+        <module>ServiceEureka</module>
+        <module>ServiceGateway</module>
+        <module>ServiceSurvey</module>
+        <module>ServiceUser</module>
     </modules>
 
     <properties>
@@ -74,6 +75,10 @@
             <artifactId>spring-cloud-starter-task</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
 
 
     </dependencies>
@@ -94,5 +99,14 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
+
 </project>
